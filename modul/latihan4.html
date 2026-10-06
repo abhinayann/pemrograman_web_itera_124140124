@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latihan 4 - Form, localStorage, API, Dark Mode, Todo</title>
+<style>
+  :root { --bg: #ffffff; --teks: #1d2b24; --panel: #f3f6f3; --garis: #d5ddd7; --aksen: #1f6f50; --salah: #c62828; }
+  body.dark { --bg: #14201a; --teks: #e6efe9; --panel: #1e2d25; --garis: #35493e; --aksen: #5fc79a; --salah: #ff8a80; }
+  body { font-family: "Segoe UI", sans-serif; background: var(--bg); color: var(--teks); max-width: 900px; margin: 0 auto; padding: 16px; }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.1rem; margin-top: 0; }
+  section { background: var(--panel); border: 1px solid var(--garis); border-radius: 8px; padding: 16px; margin-top: 18px; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  th, td { padding: 8px; border-bottom: 1px solid var(--garis); text-align: left; }
+  input { padding: 8px; width: 100%; box-sizing: border-box; background: var(--bg); color: var(--teks); border: 1px solid var(--garis); border-radius: 4px; }
+  button { padding: 7px 12px; cursor: pointer; border-radius: 4px; border: 1px solid var(--garis); background: var(--bg); color: var(--teks); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 3px; }
+  .error { color: var(--salah); font-size: .85rem; min-height: 1.2em; }
+  .baris { display: flex; gap: 8px; align-items: center; }
+  .baris input[type="text"] { flex: 1; }
+  ul { list-style: none; padding: 0; }
+  li.item { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--garis); }
+  li.item span { flex: 1; }
+  li.selesai span { text-decoration: line-through; opacity: .6; }
+  .post { padding: 8px 0; border-bottom: 1px solid var(--garis); }
+  .post small { opacity: .7; }
+  .nav { display: flex; gap: 12px; align-items: center; margin-top: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Latihan 4: Form, localStorage, API, Dark Mode, dan Todo</h1>
+  <button id="btnTema">Mode gelap</button>
+</header>
+
+<!-- 1 dan 2: Form mahasiswa + localStorage -->
+<section>
+  <h2>1 dan 2. Form mahasiswa (validasi + localStorage)</h2>
+  <form id="formMhs" novalidate>
+    <div class="grid">
+      <div><label for="mNama">Nama</label><input id="mNama"><div class="error" id="eNama"></div></div>
+      <div><label for="mNim">NIM</label><input id="mNim"><div class="error" id="eNim"></div></div>
+      <div><label for="mJurusan">Jurusan</label><input id="mJurusan"><div class="error" id="eJurusan"></div></div>
+      <div><label for="mNilai">Nilai (0-100)</label><input id="mNilai" type="number"><div class="error" id="eNilai"></div></div>
+    </div>
+    <button type="submit">Tambah mahasiswa</button>
+  </form>
+  <table>
+    <thead><tr><th>No</th><th>Nama</th><th>NIM</th><th>Jurusan</th><th>Nilai</th><th>Aksi</th></tr></thead>
+    <tbody id="tbodyMhs"></tbody>
+  </table>
+</section>
+
+<!-- 3 dan 5: Posts dari API + search + pagination -->
+<section>
+  <h2>3 dan 5. Daftar post dari API (search + pagination)</h2>
+  <input id="cariPost" placeholder="Cari berdasarkan title..." aria-label="Cari post berdasarkan title">
+  <div id="statusPost" class="error"></div>
+  <div id="daftarPost"></div>
+  <div class="nav">
+    <button id="btnPrev">Previous</button>
+    <span id="infoHalaman"></span>
+    <button id="btnNext">Next</button>
+  </div>
+</section>
+
+<!-- 6: Todo list -->
+<section>
+  <h2>6. Todo list</h2>
+  <div class="baris">
+    <input type="text" id="inputTodo" placeholder="Tulis tugas..." aria-label="Tugas baru">
+    <button id="btnTodo">Tambah</button>
+  </div>
+  <div class="error" id="eTodo"></div>
+  <ul id="daftarTodo"></ul>
+</section>
+
+<script src="latihan4.js"></script>
+</body>
+</html>

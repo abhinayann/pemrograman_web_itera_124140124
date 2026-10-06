@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latihan 3 - Array, Objek, dan CRUD</title>
+<style>
+  body { font-family: "Segoe UI", sans-serif; max-width: 900px; margin: 24px auto; padding: 0 16px; color: #1d2b24; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.05rem; margin-top: 28px; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  th, td { padding: 8px; border-bottom: 1px solid #d5ddd7; text-align: left; }
+  th { background: #f3f6f3; }
+  button { padding: 7px 12px; cursor: pointer; margin: 2px 4px 2px 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+  label { display: block; font-weight: 600; font-size: .9rem; }
+  input { width: 100%; padding: 7px; box-sizing: border-box; }
+  .box { background: #f3f6f3; border: 1px solid #d5ddd7; border-radius: 6px; padding: 12px; }
+  .salah { color: #c62828; font-size: .9rem; min-height: 1.2em; }
+</style>
+</head>
+<body>
+<h1>Latihan 3: Array Objek, Method Array, dan CRUD</h1>
+
+<h2>1. Data mahasiswa</h2>
+<table>
+  <thead><tr><th>No</th><th>Nama</th><th>NIM</th><th>Jurusan</th><th>Nilai</th><th>Aksi</th></tr></thead>
+  <tbody id="tbodyUtama"></tbody>
+</table>
+
+<h2>4. Urutkan berdasarkan nama</h2>
+<button id="btnAsc">Nama A-Z (ascending)</button>
+<button id="btnDesc">Nama Z-A (descending)</button>
+
+<h2>2 dan 3. Nilai tertinggi dan di atas rata-rata</h2>
+<div class="box">
+  <p id="infoTertinggi"></p>
+  <p id="infoRata"></p>
+  <table>
+    <thead><tr><th>Nama</th><th>NIM</th><th>Jurusan</th><th>Nilai</th></tr></thead>
+    <tbody id="tbodyAtas"></tbody>
+  </table>
+</div>
+
+<h2 id="judulForm">5. Tambah mahasiswa (Create)</h2>
+<div class="box">
+  <div class="grid">
+    <div><label for="nama">Nama</label><input id="nama"></div>
+    <div><label for="nim">NIM</label><input id="nim"></div>
+    <div><label for="jurusan">Jurusan</label><input id="jurusan"></div>
+    <div><label for="nilai">Nilai (0-100)</label><input id="nilai" type="number"></div>
+  </div>
+  <div class="salah" id="pesanError"></div>
+  <button id="btnSimpan">Tambah</button>
+  <button id="btnBatal" hidden>Batal edit</button>
+</div>
+
+<script src="latihan3.js"></script>
+</body>
+</html>
